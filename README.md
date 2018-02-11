@@ -23,5 +23,14 @@ kill -9 PID
 
 Happy coding!
 The Cloud9 IDE team
-=======
-# CST_438_Examples\
+**************************************************************************
+Add content to Web cite commands
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
+
+**************************************************************************
+Web cite url address
+https://trinotech.herokuapp.com/
+
+***************************************************************************

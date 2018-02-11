@@ -6,19 +6,19 @@ body {
 h1 {
   color: #FFFFFF;
   text-align: center;
-  font-size: 35px;
+  font-size: 50px;
 }
 
 h2 {
   color: #FFFFFF;
   text-align: left;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 h3 {
   color: #FFFFFF;
   text-align: left;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 body {
@@ -28,10 +28,20 @@ body {
 li {
   color: #FFFFFF;
   text-align: left;
-  font-size: 20px;
+  font-size: 25px;
 }
+
 button {
-	height: 60px;
-	width: 200px;
-	font-size: 20px;
+	height: 80px;
+	width: 160px;
+	font-size: 25px;
+}
+
+img {
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 8px;
+  border-color: white;
+  width: 630px;
+  height: 630px;
 }
