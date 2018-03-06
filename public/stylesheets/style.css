@@ -2,6 +2,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #4169E1;
   padding-left: 10%;
+  padding-right: 10%;
 }
 
 h1 {
@@ -29,8 +30,8 @@ li {
 }
 
 button {
-	height: 80px;
-	width: 160px;
+	height: 70px;
+	width: 190px;
 	font-size: 25px;
 }
 

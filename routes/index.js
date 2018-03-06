@@ -9,32 +9,28 @@ const instagram = new Instagram({
   accessToken: process.env.accessToken
 });
 
-// You can use callbacks or promises
-instagram.get('users/self/media/recent', (err, data) => {
-  if (err) {
-    console.log("nice try!");
-    console.log(err);
-  } else {
-    console.log('Your got this: ', data);
-  }
-});
- 
-// Get information about the owner of the access_token.
- var data = instagram.get('users/self');
- console.log("User Data: ", data);
- 
-// Handle errors
-instagram.get('tags/lol').then((data) => {
-  // console.log(data);
-}).catch((err) => {
-  // An error occured
-  console.log(err);
-});
+function instagramInfo(sendBackResponseToBrowser){
+  instagram.get('users/self/media/recent', (err, data) => {
+    if (err) {
+      console.log("Denied!!!, This craped the bed: ", err);
+    } else {
+      // console.log('You got this from Instagram: ', data);
+      for(let x of Object.keys(data)){
+        if (x == 'data'){
+          var info = data[x];
+          sendBackResponseToBrowser(info);
+          }
+        }
+      }
+  });
+}
 
-/* GET home page. */
+// GET home page
 router.get('/', function(req, res, next) {
-  console.log('Data Lengt!!!!!!!!!!!!!!!!!!!!', data.length);
-  res.render('index', { title: 'TrinoTech', data: data});
+  instagramInfo(function(info){
+    // console.log(info);
+    res.render('index', { title: 'TrinoTech', info: info});
+  });
 });
 
 module.exports = router;
