@@ -2,25 +2,33 @@ var express = require('express');
 const Instagram = require('node-instagram').default;
 var router = express.Router();
 
-// Create a new instance.
+// Create a new instance with the credentials.
 const instagram = new Instagram({
   clientId: process.env.clientID,
   clientSecret: process.env.clientSecret,
   accessToken: process.env.accessToken
 });
 
+// Maks Instagram API call using credentials
 function instagramInfo(sendBackResponseToBrowser){
   instagram.get('users/self/media/recent', (err, data) => {
     if (err) {
-      console.log("Denied!!!, This craped the bed: ", err);
+      // This sets up a defult post if error occurs and console's error
+      console.log("This is the trouble maker: ", err);
+      var staticLink = 'https://www.instagram.com/p/BdON8OiH_Zj/';
+      sendBackResponseToBrowser(staticLink);
     } else {
       // console.log('You got this from Instagram: ', data);
+      var info = '';
+      // This loop filters out the 2 other arrays
       for(let x of Object.keys(data)){
-        if (x == 'data'){
-          var info = data[x];
-          sendBackResponseToBrowser(info);
-          }
+        if (x == 'data')
+          info = data[x];
         }
+        // Sends the most resent post i.e. top of the list
+        var link = info[0];
+        console.log(link);
+        sendBackResponseToBrowser(link["link"]);
       }
   });
 }
