@@ -27,7 +27,7 @@ function instagramInfo(sendBackResponseToBrowser){
         }
         // Sends the most resent post i.e. top of the list
         var link = info[0];
-        console.log(link);
+        // console.log(link);
         sendBackResponseToBrowser(link["link"]);
       }
   });
